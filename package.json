@@ -1,0 +1,14 @@
+{
+  "name": "tanktrouble-lan",
+  "version": "1.0.0",
+  "description": "LAN multiplayer TankTrouble with Matter.js physics",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "matter-js": "^0.20.0",
+    "socket.io": "^4.8.0"
+  }
+}

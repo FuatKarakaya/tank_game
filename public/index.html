@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TankTrouble LAN</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <div id="scoreboard"></div>
+    <canvas id="canvas" width="640" height="384"></canvas>
+    <div id="status">Connecting…</div>
+    <div id="round-timer">00:00</div>
+    <button id="settings-btn">⚙️</button>
+  </div>
+  <div id="color-picker-container">
+    <label for="color-picker">Your Tank Color:</label>
+    <input type="color" id="color-picker" value="#3498db">
+  </div>
+
+  <div id="settings-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2>Game Settings</h2>
+      <label>Tank Speed:
+        <input type="number" id="set-tank-speed" step="0.1" value="2.4">
+      </label>
+      <label>Tank Turn Rate:
+        <input type="number" id="set-tank-turn" step="0.01" value="0.1">
+      </label>
+      <label>Bullet Speed:
+        <input type="number" id="set-bullet-speed" step="0.1" value="2.7">
+      </label>
+      <label>Max Bullets per Player:
+        <input type="number" id="set-max-bullets" step="1" value="10">
+      </label>
+      <label>Post-Win Carry-on (ms):
+        <input type="number" id="set-carry-on" step="100" value="4000">
+      </label>
+      <hr style="margin: 5px 0; border: 1px solid #eee;">
+      <label>Maze Rows (0=Random):
+        <input type="number" id="set-maze-rows" min="0" step="1" value="0">
+      </label>
+      <label>Maze Cols (0=Random):
+        <input type="number" id="set-maze-cols" min="0" step="1" value="0">
+      </label>
+      <label>
+        <input type="checkbox" id="set-symmetric-maze"> Symmetric Maze
+      </label>
+      <label>Wall Removal Frac:
+        <input type="number" id="set-wall-removal" step="0.01" value="0.18">
+      </label>
+      <label>Shake Intensity:
+        <input type="number" id="set-shake" step="1" value="5">
+      </label>
+      <button id="settings-save">Save & Apply</button>
+      <button id="settings-cancel">Cancel</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="renderer.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f5f5;
+  color: #222222;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── Scoreboard ────────────────────────────────────────── */
+
+#scoreboard {
+  display: flex;
+  gap: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 24px;
+}
+
+.score-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.score-color {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+/* ── Canvas ────────────────────────────────────────────── */
+
+#canvas {
+  border: 2px solid #cccccc;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+/* ── Status bar ────────────────────────────────────────── */
+
+#status {
+  font-size: 14px;
+  color: #666;
+  min-height: 20px;
+}
+
+#round-timer {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+}
+
+#settings-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#settings-btn:hover { background: #eee; }
+
+.modal {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 100;
+}
+.modal-content {
+  background: #fff; padding: 20px; border-radius: 8px;
+  display: flex; flex-direction: column; gap: 10px;
+  min-width: 300px;
+}
+.modal-content label { display: flex; justify-content: space-between; align-items: center; }
+.modal-content input { width: 80px; padding: 4px; }
+.modal-content button { padding: 8px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; }
+#settings-save { background: #2ecc71; color: white; border-color: #27ae60; }
+#settings-save:hover { background: #27ae60; }
+
+#color-picker-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+}
+#color-picker {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes shakeAnim {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+.shake {
+  animation: shakeAnim 0.4s;
+  animation-iteration-count: 1;
+}
