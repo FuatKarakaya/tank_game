@@ -105,6 +105,8 @@ body {
 .modal-content label { display: flex; justify-content: space-between; align-items: center; }
 .modal-content input { width: 80px; padding: 4px; }
 .modal-content button { padding: 8px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; }
+.modal-content .checkbox-label { justify-content: flex-start; gap: 8px; }
+.modal-content .checkbox-label input[type="checkbox"] { width: auto; }
 #settings-save { background: #2ecc71; color: white; border-color: #27ae60; }
 #settings-save:hover { background: #27ae60; }
 
@@ -127,6 +129,37 @@ body {
   background: transparent;
   width: 40px;
   height: 40px;
+}
+
+#global-stats-container {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  color: #333;
+  font-size: 14px;
+}
+
+#kill-leaderboard {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  color: #333;
+  font-size: 12px;
 }
 
 @keyframes shakeAnim {

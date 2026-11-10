@@ -107,6 +107,32 @@ class MatterWorld {
   }
 
   /**
+   * Switch a tank to ghost mode — only collides with walls, not other tanks.
+   * The tank keeps its velocity and bounces off walls but is otherwise inert.
+   */
+  ghostTank(id) {
+    const body = this.tankBodies[id];
+    if (!body) return;
+
+    // Change collision filter: ghost category, only collide with walls
+    body.collisionFilter = {
+      category: 0x0004,   // ghost
+      mask: 0x0001,       // walls only
+    };
+
+    // Update all parts too (compound body)
+    for (const part of body.parts) {
+      part.collisionFilter = {
+        category: 0x0004,
+        mask: 0x0001,
+      };
+    }
+
+    // Zero out angular velocity so it drifts straight
+    Body.setAngularVelocity(body, 0);
+  }
+
+  /**
    * Apply movement input to a tank.
    * Instead of directly setting position, we set velocity for physics-based movement.
    */

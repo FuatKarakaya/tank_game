@@ -14,9 +14,19 @@
     <div id="round-timer">00:00</div>
     <button id="settings-btn">⚙️</button>
   </div>
+  <div id="kill-leaderboard" style="display: none;"></div>
   <div id="color-picker-container">
-    <label for="color-picker">Your Tank Color:</label>
+    <label for="name-input">Name:</label>
+    <input type="text" id="name-input" maxlength="12" style="width: 80px; padding: 2px;">
+    <label for="color-picker" style="margin-left: 10px;">Color:</label>
     <input type="color" id="color-picker" value="#3498db">
+    <label for="fit-screen" style="margin-left: 20px;">Fit to Screen:</label>
+    <input type="checkbox" id="fit-screen">
+  </div>
+  
+  <div id="global-stats-container">
+    <div>Scrapyard (Kills): <span id="stat-scrapyard">0</span></div>
+    <div>Bullets Fired: <span id="stat-bullets">0</span></div>
   </div>
 
   <div id="settings-modal" class="modal" style="display: none;">
@@ -53,13 +63,30 @@
       <label>Shake Intensity:
         <input type="number" id="set-shake" step="1" value="5">
       </label>
+      <hr style="margin: 5px 0; border: 1px solid #eee;">
+      <h3 style="margin: 0; font-size: 14px;">Power-Ups</h3>
+      <label>Spawn Interval (frames):
+        <input type="number" id="set-powerup-interval" step="60" value="480">
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="set-pu-shield" checked> Shield
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="set-pu-doublegun" checked> Double Gun
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="set-pu-laser" checked> Laser
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="set-pu-shotgun" checked> Shotgun
+      </label>
       <button id="settings-save">Save & Apply</button>
       <button id="settings-cancel">Cancel</button>
     </div>
   </div>
 
   <script src="/socket.io/socket.io.js"></script>
-  <script src="renderer.js"></script>
-  <script src="client.js"></script>
+  <script src="renderer.js?v=5"></script>
+  <script src="client.js?v=5"></script>
 </body>
 </html>
